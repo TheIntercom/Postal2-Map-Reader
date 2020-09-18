@@ -42,8 +42,5 @@ class UnrealExportTable:
             if (self.serial_size.index_value > 0):
                 self.serial_offset  = UnrealIndexObject(file_handle, file_handle.tell())
 
-        def __iter__(self):
-            return (t for t in self.properties)
-
         def get_object_name_value(self):
             return self.object_name.index_value
