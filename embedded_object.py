@@ -7,6 +7,6 @@ class EmbeddedObject:
         self.object_flag    = '' # str (hex)
         self.serial_size    = 0 # int (number of bytes)
         self.serial_offset  = 0 # int (dec)
-        self.serial_data    = bytes()
+        self.serial_data    = list()
 
     ###################################
