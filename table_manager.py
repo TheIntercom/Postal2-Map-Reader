@@ -5,6 +5,8 @@ from unreal_import_table import UnrealImportTable
 
 from embedded_object import EmbeddedObject
 
+from util import bytes2list
+
     ###################################
 
 class TableManager:
@@ -41,7 +43,11 @@ class TableManager:
 
             self.__file_handle.seek(temp_object.serial_offset)
 
-            temp_object.serial_data     = self.__file_handle.read(temp_object.serial_size)
+            temp_object.serial_data     = bytes2list(self.__file_handle.read(temp_object.serial_size))
+
+            # if ENDIANORDER is 'little':
+            temp_object.serial_data.reverse()
+
             output.append(temp_object)
 
         return output
