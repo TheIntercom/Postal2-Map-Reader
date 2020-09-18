@@ -1,16 +1,6 @@
 from generic_data_object import GenericDataObject, ENDIANORDER
+from util import bitmask_dict
 
-    ###################################
-
-bitmask_dict = {0: 1 << 0,
-                1: 1 << 1,
-                2: 1 << 2,
-                3: 1 << 3,
-                4: 1 << 4,
-                5: 1 << 5,
-                6: 1 << 6,
-                7: 1 << 7}
-    
     ###################################
 
 class UnrealIndexObject:
@@ -83,12 +73,11 @@ class DWORDIndexObject:
     def __init__(self, file_handle, offset):
         super(DWORDIndexObject, self).__init__()
 
-        __file_handle = file_handle
         self.offset = offset
         
-        __file_handle.seek(self.offset)
+        file_handle.seek(self.offset)
 
-        self.raw_data = __file_handle.read(4)
+        self.raw_data = file_handle.read(4)
 
         self.dword_value = self.__get_dword()
 
