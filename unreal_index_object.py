@@ -1,5 +1,7 @@
 from generic_data_object import GenericDataObject, ENDIANORDER
 
+    ###################################
+
 bitmask_dict = {0: 1 << 0,
                 1: 1 << 1,
                 2: 1 << 2,
@@ -13,15 +15,12 @@ bitmask_dict = {0: 1 << 0,
 
 class UnrealIndexObject:
     def __init__(self, file_handle, offset):
-        super(UnrealIndexObject, self).__init__()
-
-        __file_handle = file_handle
         self.offset = offset
 
-        __file_handle.seek(self.offset)
+        file_handle.seek(self.offset)
 
-        self.index_length = self.__get_index_length(__file_handle, self.offset)
-        self.raw_data = __file_handle.read(self.index_length)
+        self.index_length = self.__get_index_length(file_handle, self.offset)
+        self.raw_data = file_handle.read(self.index_length)
         self.index_value = self.__get_index_value()
 
     def __get_index_value(self):
@@ -101,5 +100,3 @@ class DWORDIndexObject:
             package_value = package_value - (1 << 32)
 
         return package_value
-
-    ###################################

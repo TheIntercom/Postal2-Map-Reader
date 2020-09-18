@@ -13,8 +13,6 @@ INDEX // Serial Offset // Offset of the object inside the file. This field only 
 
 class UnrealExportTable:
     def __init__(self, file_handle, export_count, export_table_offset):
-        super(UnrealExportTable, self).__init__()
-
         self.count = export_count # int
         self.table_offset = export_table_offset # int
 
@@ -33,7 +31,6 @@ class UnrealExportTable:
 
     class ExportTableItem:
         def __init__(self, file_handle, offset):
-            # super(self.ExportTableItem, self).__init__() # it uses the wrong self so it freaks out, not to sure if i even really need this
             self.object_class   = UnrealIndexObject(file_handle, offset) # object reference
             self.object_parent  = UnrealIndexObject(file_handle, file_handle.tell()) # object reference
             self.package        = DWORDIndexObject(file_handle, file_handle.tell()) # object reference
@@ -50,5 +47,3 @@ class UnrealExportTable:
 
         def get_object_name_value(self):
             return self.object_name.index_value
-
-    ###################################

@@ -1,8 +1,9 @@
 ENDIANORDER = 'little'
 
+    ###################################
+    
 class GenericDataObject:
     def __init__(self, offset, name, data):
-        super(GenericDataObject, self).__init__()
         self.offset = offset # int
         self.name = name # str
         self.data = data # byte/bytearray

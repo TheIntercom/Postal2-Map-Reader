@@ -1,7 +1,5 @@
 class EmbeddedObject:
     def __init__(self):
-        super(EmbeddedObject, self).__init__()
-        
         self.object_class   = '' # str
         self.object_parent  = '' # str
         self.package        = '' # str

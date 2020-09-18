@@ -4,8 +4,6 @@ from os import listdir
 
 class MapManager:
     def __init__(self):
-        super(MapManager, self).__init__()
-
         self.__map_prefix = '..\\Maps\\'
 
         self.map_list = listdir('..\\Maps')
@@ -22,5 +20,3 @@ class MapManager:
 
     def get_map_name(self, index):
         return self.map_list[index][len(self.__map_prefix)::]
-
-    ###################################

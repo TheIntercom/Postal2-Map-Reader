@@ -9,8 +9,6 @@ from embedded_object import EmbeddedObject
 
 class TableManager:
     def __init__(self, file_handle):
-        super(TableManager, self).__init__()
-
         self.__file_handle = file_handle # just so i can be lazy with generating the embedded object list
 
         self.unreal_header = UnrealPackageHeader(file_handle)
@@ -26,8 +24,6 @@ class TableManager:
         self.name_table = UnrealNameTable(file_handle, self.name_count, self.name_table_offset)
         self.export_table = UnrealExportTable(file_handle, self.export_count, self.export_table_offset)
         self.import_table = UnrealImportTable(file_handle, self.import_count, self.import_table_offset)
-
-    ###################################
 
     def generate_embedded_object_list(self):
         output = list()
@@ -50,8 +46,6 @@ class TableManager:
 
         return output
 
-    ###################################
-
     def __follow_object_reference(self, index):
         '''
         If the index is zero the object referenced is null. 
@@ -68,5 +62,3 @@ class TableManager:
 
     def __get_name_from_table(self, index):
         return self.name_table.get_object_name(index)
-
-    ####################################
