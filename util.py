@@ -9,10 +9,10 @@ bitmask_dict = {0: 1 << 0,
     
     ###################################
 
-def bytes2hexlist(input_var):
+def bytes2list(input_var):
 	temp_list = list()
 
 	for byte in input_var:
 		temp_list.append("%0.2X" % byte)
-        
+
 	return temp_list
